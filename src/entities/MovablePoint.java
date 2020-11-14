@@ -36,16 +36,19 @@ public class MovablePoint extends Point {
         return arr;
     }
 
-    public MovablePoint move(){
-        super.setXY();
-        return this;
-        //x += xSpeed;
-        //y += ySpeed;
+    public MovablePoint move() {
+        float moveX = this.getPositionX() + this.get_x_speed();
+        float moveY = this.getPositionY() + this.get_y_speed();
+
+        MovablePoint object = new MovablePoint(moveX, moveY, this.get_x_speed(), this.get_y_speed());
+
+        return object;
     }
 
     @Override
     public String toString() {
-        String str = super.toString() + ", speed = (" + this.getSpeed()[0] + ", " + this.getSpeed()[1] + ")";
+        String str = "(" + this.getPositionX() + "," + this.getPositionY() + ")" + ", speed = (" + this.get_x_speed()
+                + ", " + this.get_y_speed() + ")";
         return str;
     }
 }
